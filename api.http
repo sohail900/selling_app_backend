@@ -1,0 +1,26 @@
+@host = http://localhost:3000
+@pathname = api/v1
+
+
+GET {{host}}/{{pathname}}
+
+###
+
+POST {{host}}/{{pathname}}/signup
+Content-Type: application/json
+
+{
+    "fullname":"Irfan balti",
+    "email": "irfan@gmail.com",
+    "password": "#Sohail404",
+    "role":"user"
+}
+
+###
+POST {{host}}/{{pathname}}/login
+Content-Type: application/json
+
+{
+    "email":"irfan@gmail.com",
+    "password":"#Sohail404"
+}
