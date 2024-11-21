@@ -1,3 +1,4 @@
+
 import jwt from 'jsonwebtoken'
 
 import SignUpModel from '../model/signup.model'
@@ -80,7 +81,7 @@ const generateNewToken = async (
     if (!token) return next(new ErrorHandler(400, 'Token not found!!'))
     //
     try {
-        const decode: any = jwt.verify(process.env.TOKEN as string, token)
+        const decode: any = jwt.verify(token, process.env.TOKEN as string)
         const id = decode.id
         const authToken = generateToken({
             age: '10m',
@@ -99,10 +100,11 @@ const generateNewToken = async (
             maxAge: 1000 * 60 * 20,
         })
     } catch (error) {
-        next(new ErrorHandler(401, 'Unauthenticated user'))
+        next(new ErrorHandler(401, 'Unauthorized access'))
     }
 }
 export const authController = {
     signUp,
     login,
+    generateNewToken,
 }

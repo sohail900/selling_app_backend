@@ -21,6 +21,40 @@ POST {{host}}/{{pathname}}/login
 Content-Type: application/json
 
 {
-    "email":"irfan@gmail.com",
+    "email":"sohail@gmail.com",
     "password":"#Sohail404"
 }
+
+###
+GET {{host}}/{{pathname}}/courses
+
+###
+GET {{host}}/{{pathname}}/refresh-token
+
+###
+POST {{host}}/{{pathname}}/add-courses
+Content-Type: application/json
+
+{
+    "name":"Mern-Stack and Blockchain",
+    "description":"You will learn how to build a MERN stack application and integrate it with a blockchain. also learn solidity , solana and other blockchain technologies.",
+    "price":2500
+}
+
+###
+DELETE {{host}}/{{pathname}}/remove-courses?id=61e0c0f7c9b4d1e6c8b0b1f0
+
+###
+GET {{host}}/{{pathname}}/all-courses
+
+###
+POST {{host}}/{{pathname}}/buy-course
+Content-Type: application/json
+
+{
+    "id":"673f02f9018f95ea0b512e44",
+    "payment":1500
+}
+
+###
+GET {{host}}/{{pathname}}/purchased-courses
